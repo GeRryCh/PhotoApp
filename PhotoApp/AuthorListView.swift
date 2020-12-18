@@ -8,24 +8,28 @@
 import SwiftUI
 
 struct AuthorListView: View {
-    @ObservedObject var remote = Remote<[Photo]>(
-      url: URL(string: "https://picsum.photos/v2/list")!
-    )
-    var body: some View {
+  @ObservedObject var remote = Remote<[Photo]>(
+    url: URL(string: "https://picsum.photos/v2/list")!
+  )
+  var body: some View {
+    NavigationView {
       List {
         if let photos = remote.data {
           ForEach(photos, id: \.self) { (photo: Photo) in
-            Text(photo.author)
+            NavigationLink(destination: PhotoView()) {
+              Text(photo.author)
+            }
           }
         } else {
           Text("Loading...")
         }
-      }.onAppear { remote.load() }
-    }
+      }
+    }.onAppear { remote.load() }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthorListView()
-    }
+  static var previews: some View {
+    AuthorListView()
+  }
 }

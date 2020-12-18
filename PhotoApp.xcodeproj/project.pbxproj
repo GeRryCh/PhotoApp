@@ -13,6 +13,7 @@
 		9BF952DF258CF6B9007FD832 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF952DE258CF6B9007FD832 /* Preview Assets.xcassets */; };
 		9BF952E8258CF6F4007FD832 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF952E7258CF6F4007FD832 /* Photo.swift */; };
 		9BF952EB258CF760007FD832 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF952EA258CF760007FD832 /* Remote.swift */; };
+		9BF952EF258D010D007FD832 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF952EE258D010D007FD832 /* PhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9BF952E0258CF6B9007FD832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BF952E7258CF6F4007FD832 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		9BF952EA258CF760007FD832 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
+		9BF952EE258D010D007FD832 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				9BF952D7258CF6B7007FD832 /* PhotoAppApp.swift */,
 				9BF952D9258CF6B7007FD832 /* AuthorListView.swift */,
+				9BF952EE258D010D007FD832 /* PhotoView.swift */,
 				9BF952E7258CF6F4007FD832 /* Photo.swift */,
 				9BF952EA258CF760007FD832 /* Remote.swift */,
 				9BF952DB258CF6B9007FD832 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				9BF952E8258CF6F4007FD832 /* Photo.swift in Sources */,
 				9BF952DA258CF6B7007FD832 /* AuthorListView.swift in Sources */,
 				9BF952D8258CF6B7007FD832 /* PhotoAppApp.swift in Sources */,
+				9BF952EF258D010D007FD832 /* PhotoView.swift in Sources */,
 				9BF952EB258CF760007FD832 /* Remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
