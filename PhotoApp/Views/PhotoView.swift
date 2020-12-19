@@ -17,7 +17,7 @@ struct PhotoView<I: ImageLoader>: View where I: ObservableObject {
           .resizable()
           .aspectRatio(contentMode: .fit)
       } else {
-        Text("Loading...")
+        ActivityIndicator(isAnimating: .constant(true), style: .large)
       }
     }
     .navigationTitle("Photo")

@@ -13,21 +13,23 @@ struct AuthorListView: View {
   )
   var body: some View {
     NavigationView {
-      List {
+      Group {
         if let photos = remote.data {
-          ForEach(photos, id: \.self) { (photo: Photo) in
+          List(photos, id: \.self) { (photo: Photo) in
             NavigationLink(
               destination: PhotoView(loader: RemoteImageLoader(url: URL(string: photo.download_url)!))
             ) {
               Text(photo.author)
             }
           }
-        } else {
-          Text("Loading...")
+        }
+        else {
+          ActivityIndicator(isAnimating: .constant(true), style: .large)
         }
       }
       .navigationTitle("Authors")
-    }.onAppear { remote.load() }
+      .onAppear { remote.load() }
+    }
   }
 }
 
