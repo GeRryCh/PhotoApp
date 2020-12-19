@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AuthorListView: View {
-  @ObservedObject var remote = Remote<[Photo]>(
+  @StateObject var remote = Remote<[Photo]>(
     url: URL(string: "https://picsum.photos/v2/list")!
   )
   var body: some View {
@@ -16,7 +16,9 @@ struct AuthorListView: View {
       List {
         if let photos = remote.data {
           ForEach(photos, id: \.self) { (photo: Photo) in
-            NavigationLink(destination: PhotoView()) {
+            NavigationLink(
+              destination: PhotoView(loader: RemoteImageLoader(url: URL(string: photo.download_url)!))
+            ) {
               Text(photo.author)
             }
           }
@@ -24,6 +26,7 @@ struct AuthorListView: View {
           Text("Loading...")
         }
       }
+      .navigationTitle("Authors")
     }.onAppear { remote.load() }
   }
 }

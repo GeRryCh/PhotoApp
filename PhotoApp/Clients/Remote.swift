@@ -18,15 +18,18 @@ class Remote<T: Decodable>: ObservableObject {
   }
   
   func load() {
-    URLSession(configuration: .default)
-      .dataTask(with: url) { (data, _, error) in
+    URLSession.shared
+      .dataTask(with: url) { [weak self] (data, _, error) in
         guard let data = data else {
           fatalError("Data returned nil")
         }
-        do {
-          self.data = try JSONDecoder().decode(T.self, from: data)
-        } catch {
-          fatalError("Unable to decode data")
+        DispatchQueue.main.async {
+          do {
+            self?.data = try JSONDecoder().decode(T.self, from: data)
+          }
+          catch {
+            fatalError("Unable to decode data")
+          }
         }
       }.resume()
   }
